@@ -1,16 +1,24 @@
-LANG=de_DE.UTF-8
+LANG=en_GB.UTF-8
+export LC_ALL=$LANG
+
+# Setup automcompletion
+fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
 compinit
+
+# Emac key bindings
 bindkey -e
 
 # Includes
 . ~/.zsh/variables.zsh
+. ~/.zsh/functions.zsh
 . ~/.zsh/envs/dev_env.zsh
-. ~/.zsh/styles.zsh
+. ~/.zsh/completions.zsh
 . ~/.zsh/colours.zsh
 . ~/.zsh/aliases.zsh
 . ~/.zsh/key_bindings.zsh
 . ~/.zsh/prompt.zsh
+. ~/.zsh/iterm.zsh
 
 # Command history
 HISTFILE=~/.histfile
@@ -22,38 +30,6 @@ setopt autocd
 DIRSTACKSIZE=10
 setopt autopushd pushdminus pushdsilent pushdtohome
 
-function stage {
-  cap staging deploy --set branch=$1 --set rebase_to=$1
-}
+stty stop undef
 
-function precmd {
-      vcs_info 'prompt'
-}
-
-function lprompt {
-    PROMPT_SYMBOL="${PR_WHITE} $ ${PR_RESET}"
-    PROMPT="%b %~%B${PROMPT_SYMBOL}%b"
-}
-
-function rprompt {
-    CURRENT_DEV_ENV="{${PR_RED}${DEV_ENV}${PR_RESET}}"
-    TIME="[${PR_MAGENTA}%T${PR_RESET}]"
-    local git='$vcs_info_msg_0_'
-    GIT="${git}"
-    RPROMPT="${TIME}${GIT}${CURRENT_DEV_ENV}"
-}
-
-function imedoenv () {
-  cat ~/.zsh/envs/imedo_env.zsh > ~/.zsh/envs/dev_env.zsh
-  source $HOME/.zshrc
-}
-
-function myenv () {
-  cat ~/.zsh/envs/my_env.zsh > ~/.zsh/envs/dev_env.zsh
-  source $HOME/.zshrc
-}
-
-lprompt ""
-rprompt ""
-
-/opt/imedodev/current/bash/environment/development.sh
+setopt extended_glob

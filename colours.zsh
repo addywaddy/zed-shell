@@ -8,3 +8,6 @@ for COLOR in RED GREEN YELLOW WHITE BLACK CYAN MAGENTA; do
 done
 
 PR_RESET="%{${reset_color}%}";
+
+export COLOR=1
+export LSCOLORS=Gxfxcxdxbxegedabagacad

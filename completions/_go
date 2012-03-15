@@ -1,0 +1,5 @@
+#compdef go
+
+folders=$(ls -d ~/imedo/git/*/*(/)|sed "s|$HOME/imedo/git/||")
+
+_arguments "1: :($folders)"
