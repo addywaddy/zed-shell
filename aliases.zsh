@@ -21,10 +21,10 @@ alias      scs='script/console staging'
 alias    nrake='NONET=true rake'
 
 # Git
-alias        g="$EDITOR $HOME/.gitconfig"
-alias  gitconf="$EDITOR .git/config"
-alias   gitmod="$EDITOR .gitmodules"
-alias   gitig="$EDITOR .gitignore"
+alias        g="git config --global -e"
+alias       gl="git config --local -e"
+alias       gm="$EDITOR .gitmodules"
+alias       gi="$EDITOR .gitignore"
 
 #Utils
 alias     hcal='cal | grep -C6 --color -e " $(date +%e)" -e "^(date +%e)"'
