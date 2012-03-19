@@ -1,1 +1,3 @@
 aws.zsh
+cache/*
+env/imedo_env.zsh
