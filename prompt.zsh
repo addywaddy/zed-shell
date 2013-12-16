@@ -25,16 +25,16 @@ function precmd {
 }
 
 function lprompt {
-  PROMPT_SYMBOL=" $ ${PR_RESET}"
+  PROMPT_SYMBOL=" £ ${PR_RESET}"
   PROMPT="%b %~%B${PROMPT_SYMBOL}%b"
 }
 
 function rprompt {
-  CURRENT_DEV_ENV="{${PR_RED}${DEV_ENV}${PR_RESET}}"
   TIME="[${PR_MAGENTA}%T${PR_RESET}]"
   local git='$vcs_info_msg_0_'
   GIT="${git}"
-  RPROMPT="${TIME}${GIT}${CURRENT_DEV_ENV}"
+  RUBY='$(rbenv version-name)'
+  RPROMPT="${VI_MODE}${TIME}${GIT} {${PR_RED}${RUBY}${PR_RESET}}"
 }
 
 lprompt ""

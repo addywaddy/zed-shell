@@ -3,15 +3,15 @@ alias        l='ls -laGh'
 alias       ..='cd ..'
 alias     cpwd="pwd | pbcopy"
 alias     ppwd="cd `pbpaste`"
-alias    mysql='mysql5'
 alias     rmrf='rm -rf'
 alias       dh='dirs -v'
 
 # Editors
-alias       mm='mate .'
-alias       vim=/usr/local/bin/vim
+alias       vim=/usr/bin/vim
 alias       vv='vim .'
+alias       mm='mvim .'
 alias       vi='vim'
+alias       ee="open . -a Emacs"
 
 # Rails/Ruby
 alias       ss='script/server'
@@ -37,3 +37,6 @@ alias        h="$EDITOR /etc/hosts"
 alias      dns="$EDITOR /etc/resolv.conf"
 alias        v="$EDITOR $HOME/.vim"
 alias        z="$EDITOR $HOME/.zsh"
+alias        s="$EDITOR $HOME/.slate"
+alias        sc="$EDITOR $HOME/.ssh/config"
+alias       be="bundle exec"

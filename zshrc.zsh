@@ -1,24 +1,32 @@
-LANG=en_GB.UTF-8
-export LC_ALL=$LANG
+# Ensure Homebrew stuff found first
+export PATH=/usrl/local/bin:$PATH
+
+export LANG=en_GB.UTF-8
+export LC_CTYPE=$LANG
 
 # Setup automcompletion
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
 compinit
 
-# Emac key bindings
+autoload -U zmv
+alias mmv='noglob zmv -W'
+
+# Vi key bindings
 bindkey -e
 
 # Includes
 . ~/.zsh/variables.zsh
 . ~/.zsh/functions.zsh
-. ~/.zsh/envs/dev_env.zsh
+. ~/.zsh/env.zsh
 . ~/.zsh/completions.zsh
 . ~/.zsh/colours.zsh
 . ~/.zsh/aliases.zsh
 . ~/.zsh/key_bindings.zsh
 . ~/.zsh/prompt.zsh
 . ~/.zsh/iterm.zsh
+. ~/.zsh/ruby.zsh
+. ~/.zsh/node.zsh
 
 # Command history
 HISTFILE=~/.histfile
@@ -33,3 +41,16 @@ setopt autopushd pushdminus pushdsilent pushdtohome
 stty stop undef
 
 setopt extended_glob
+
+# If I am using vi keys, I want to know what mode I'm currently using.
+# zle-keymap-select is executed every time KEYMAP changes.
+# From http://zshwiki.org/home/examples/zlewidgets
+function zle-keymap-select {
+  VIMODE="${${KEYMAP/vicmd/ M:command}/(main|viins)/}"
+  zle reset-prompt
+}
+
+zle -N zle-keymap-select
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+ttyctl -f # The  -f  option  freezes the tty, enabling vim to receive <C-s> commands
