@@ -54,3 +54,5 @@ zle -N zle-keymap-select
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
 ttyctl -f # The  -f  option  freezes the tty, enabling vim to receive <C-s> commands
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
