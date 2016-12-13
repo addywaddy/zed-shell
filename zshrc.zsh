@@ -1,9 +1,3 @@
-# Ensure Homebrew stuff found first
-export PATH=/usrl/local/bin:$PATH
-
-export LANG=en_GB.UTF-8
-export LC_CTYPE=$LANG
-
 # Setup automcompletion
 fpath=(~/.zsh/completions $fpath)
 autoload -U compinit
@@ -16,9 +10,7 @@ alias mmv='noglob zmv -W'
 bindkey -e
 
 # Includes
-. ~/.zsh/variables.zsh
 . ~/.zsh/functions.zsh
-. ~/.zsh/env.zsh
 . ~/.zsh/completions.zsh
 . ~/.zsh/colours.zsh
 . ~/.zsh/aliases.zsh
@@ -26,7 +18,6 @@ bindkey -e
 . ~/.zsh/prompt.zsh
 . ~/.zsh/iterm.zsh
 . ~/.zsh/ruby.zsh
-. ~/.zsh/node.zsh
 
 # Command history
 HISTFILE=~/.histfile
