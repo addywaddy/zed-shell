@@ -25,7 +25,7 @@ function precmd {
 }
 
 function lprompt {
-  PROMPT_SYMBOL=" £ ${PR_RESET}"
+  PROMPT_SYMBOL=" € ${PR_RESET}"
   PROMPT="%b %~%B${PROMPT_SYMBOL}%b"
 }
 
