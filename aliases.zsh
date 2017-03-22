@@ -12,6 +12,8 @@ alias       vv='vim .'
 alias       mm='mvim .'
 alias       vi='vim'
 alias       ee="open . -a Emacs"
+alias        j='vi ~/Documents/journal.txt'
+alias        k='vi ~/Documents/learning.md'
 
 # Rails/Ruby
 alias       ss='script/server'
