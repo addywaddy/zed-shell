@@ -9,3 +9,6 @@ export EDITOR="/usr/bin/vim"
 export VISUAL=$EDITOR
 
 export WORDCHARS="${WORDCHARS:s#/#}"
+export ANDROID_HOME=${HOME}/Library/Android/sdk
+export PATH=${PATH}:${ANDROID_HOME}/tools
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
