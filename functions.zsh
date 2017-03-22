@@ -5,7 +5,7 @@ function gum () {
 
 # cd to gem
 function gom () {
-  cd `ls -d $GEM_HOME/gems/$1-* | sort | tail -n 1`
+  cd `bundle show $1`
 }
 
 function sedack() {
