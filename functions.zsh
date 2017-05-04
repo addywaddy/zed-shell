@@ -40,3 +40,12 @@ function sedag() {
 function tabname () {
   echo -ne "\e]1;$@\a"
 }
+
+function rspring {
+  if [ -f bin/spring ]
+  then
+    bin/spring rspec "$@"
+  else
+		bundle exec rspec "$@"
+  fi
+}
