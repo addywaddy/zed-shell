@@ -49,3 +49,13 @@ function rspring {
 		bundle exec rspec "$@"
   fi
 }
+
+function xkcdpass () {
+  [ $(echo "$1"|grep -E "[0-9]+") ] && NUM="$1" || NUM=1
+  DICT=$(LC_CTYPE=C grep -E "^[a-zA-Z]{3,6}$" /usr/share/dict/words)
+  for I in $(seq 1 "$NUM"); do
+      WORDS=$(echo "$DICT"|gshuf -n 6|paste -sd ' ' -)
+      XKCD=$(echo "$WORDS"|sed 's/ //g')
+      echo "$XKCD ($WORDS)"|awk '{x=$1;$1="";printf "%-36s %s\n", x, $0}'
+  done | column
+}

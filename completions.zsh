@@ -1,3 +1,4 @@
+. ~/.zsh/completions/_git-flow
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zsh/cache/$HOST
 
@@ -67,3 +68,5 @@ _rake () {
 }
 
 compdef _rake rake
+
+source <(kops completion zsh)

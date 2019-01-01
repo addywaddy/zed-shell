@@ -1,5 +1,5 @@
 # Filesystem
-alias        l='ls -laGh'
+alias        l='ls -ltaGh'
 alias       ..='cd ..'
 alias     cpwd="pwd | pbcopy"
 alias     ppwd="cd `pbpaste`"
@@ -7,13 +7,15 @@ alias     rmrf='rm -rf'
 alias       dh='dirs -v'
 
 # Editors
-alias       vim=/usr/bin/vim
+alias       vi=vim
 alias       vv='vim .'
 alias       mm='mvim .'
-alias       vi='vim'
 alias       ee="open . -a Emacs"
 alias        j='vi ~/Documents/journal.txt'
+alias        w="date '+%a %b %d %Y' >> ~/Documents/work.txt && vi ~/Documents/work.txt"
 alias        k='vi ~/Documents/learning.md'
+alias        tt='vi ~/Documents/typing.txt'
+alias        em='emacsclient --no-wait'
 
 # Rails/Ruby
 alias       ss='script/server'
