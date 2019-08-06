@@ -69,4 +69,5 @@ _rake () {
 
 compdef _rake rake
 
-source <(kops completion zsh)
+source <(kubectl completion zsh)
+source <(minikube completion zsh)

@@ -59,3 +59,19 @@ function xkcdpass () {
       echo "$XKCD ($WORDS)"|awk '{x=$1;$1="";printf "%-36s %s\n", x, $0}'
   done | column
 }
+
+function ibmcc () {
+  eval $(ibmcloud cs cluster-config $1 | tail -2 | head -1)
+  echo $KUBECONFIG
+}
+
+# FZF functions
+fgb() {
+  local branches branch
+  # branches=$(git branch -vv) &&
+  # branch=$(echo "$branches" | fzf +m) &&
+  # git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch")
+}

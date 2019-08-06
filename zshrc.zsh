@@ -55,3 +55,13 @@ export GPG_TTY
 
 # See here for details:
 # https://www.gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html#Invoking-GPG_002dAGENT
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/local/bin/aws-okta aws-okta
+
+# enable comments on the command line
+setopt interactivecomments
+
+autoload -Uz compinit && compinit
+. /usr/local/opt/asdf/asdf.sh
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
